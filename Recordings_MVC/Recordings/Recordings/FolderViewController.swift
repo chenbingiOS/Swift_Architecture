@@ -5,25 +5,40 @@
 //  Created by mtAdmin on 2021/6/10.
 //
 
+
+//== 通常是用于判定两个对象的内容是否相同 === 通常是用于判定两个对象引用的是否为同一块内存地址。
+
 import UIKit
 
 class FolderViewController: UITableViewController {
 
+    var folder: Folder?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationItem.leftItemsSupplementBackButton = true
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleChangeNotification(_:)), name: Store.changedNotification, object: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func handleChangeNotification(_ notification: Notification) {
+        
     }
-    */
+}
 
+// MARK: 状态恢复功能
+extension FolderViewController {
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+    }
+}
+
+fileprivate extension String {
+    static let recoredings = "Recordings"
 }
