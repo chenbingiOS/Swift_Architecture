@@ -12,7 +12,11 @@ import UIKit
 
 class FolderViewController: UITableViewController {
 
-    var folder: Folder?
+    var folder: Folder? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,12 @@ class FolderViewController: UITableViewController {
     @objc func handleChangeNotification(_ notification: Notification) {
         
     }
+}
+// MARK: Delegate
+extension FolderViewController {
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        
+//    }
 }
 
 // MARK: 状态恢复功能
