@@ -70,16 +70,24 @@
 				7C776613267209FA00A8BD9D /* FolderViewController.swift */,
 				7C77661726720BDE00A8BD9D /* PlayViewController.swift */,
 				7C77661D26720DC400A8BD9D /* RecordViewController.swift */,
-				7C77661A26720C2E00A8BD9D /* Recording.swift */,
-				7C776621267219FB00A8BD9D /* Folder.swift */,
-				7C7766272672229700A8BD9D /* Item.swift */,
-				7C77662426721A5B00A8BD9D /* Store.swift */,
+				7CCEBF952672FC9700FEA6DC /* Model */,
 				7C7766022672091C00A8BD9D /* Main.storyboard */,
 				7C7766052672091D00A8BD9D /* Assets.xcassets */,
 				7C7766072672091D00A8BD9D /* LaunchScreen.storyboard */,
 				7C77660A2672091D00A8BD9D /* Info.plist */,
 			);
 			path = Recordings;
+			sourceTree = "<group>";
+		};
+		7CCEBF952672FC9700FEA6DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C77662426721A5B00A8BD9D /* Store.swift */,
+				7C7766272672229700A8BD9D /* Item.swift */,
+				7C77661A26720C2E00A8BD9D /* Recording.swift */,
+				7C776621267219FB00A8BD9D /* Folder.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
