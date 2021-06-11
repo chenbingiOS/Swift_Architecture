@@ -11,7 +11,6 @@
         <!--Navigation Controller-->
         <scene sceneID="86F-EY-2eN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Pf-XX-AeN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="TgQ-oS-Mbz" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="jOh-vw-v5w"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IU7-dS-5s6">
@@ -22,6 +21,7 @@
                         <segue destination="Em1-Yg-oGj" kind="relationship" relationship="rootViewController" id="5rx-kf-ehH"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Pf-XX-AeN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-767" y="105"/>
         </scene>
@@ -44,7 +44,7 @@
         <!--Folder-->
         <scene sceneID="RPs-a2-YV2">
             <objects>
-                <tableViewController title="Folder" id="2dY-eE-Ybl" sceneMemberID="viewController">
+                <tableViewController title="Folder" id="2dY-eE-Ybl" customClass="FolderViewController" customModule="Recordings" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="itm-EE-wvS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,10 +80,21 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Recordings" id="5h6-3J-gxY">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="EaN-JY-XGt"/>
-                            <barButtonItem systemItem="organize" id="7yx-nT-UtP"/>
+                            <barButtonItem systemItem="add" id="EaN-JY-XGt">
+                                <connections>
+                                    <action selector="createNewRecording:" destination="2dY-eE-Ybl" id="DBV-Dq-5et"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="organize" id="7yx-nT-UtP">
+                                <connections>
+                                    <action selector="createNewFolder:" destination="2dY-eE-Ybl" id="vMZ-HR-AlR"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <segue destination="XCx-q0-NyK" kind="presentation" identifier="showRecorder" modalPresentationStyle="formSheet" modalTransitionStyle="crossDissolve" id="Ujn-oF-AGs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1a-Fi-BcE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,10 +109,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cHv-v7-haa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fV2-bG-8Ct">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gRq-es-APX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryg-wF-lp2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

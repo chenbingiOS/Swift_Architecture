@@ -17,6 +17,11 @@ class PlayViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        recording = nil
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -32,5 +37,19 @@ class PlayViewController: UIViewController {
 
 // MARK: 状态恢复功能
 extension PlayViewController {
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        coder.encode(recording?.uuidPath, forKey: .uuidPathKey)
+    }
     
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        if let uuidPath = coder.decodeObject(forKey: .uuidPathKey) as? [UUID], let recording = Store.shared.item(atUUIDPath: uuidPath) as? Recording {
+            self.recording = recording
+        }
+    }
+}
+
+fileprivate extension String {
+    static let uuidPathKey = "uuidPath"
 }

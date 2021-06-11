@@ -29,6 +29,8 @@ final class Store {
         } else {
             self.rootFolder = Folder(name: "", uuid: UUID())
         }
+        
+        self.rootFolder.store = self
     }
     
     // 拼接音频文件地址

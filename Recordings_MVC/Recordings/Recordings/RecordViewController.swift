@@ -27,6 +27,3 @@ class RecordViewController: UIViewController {
     */
 
 }
-
-// MARK: 状态恢复功能
-extension RecordViewController {}
